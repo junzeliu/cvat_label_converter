@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    
+    <head>
+        <meta charset="utf-8">
+        <!-- CSS only -->
+        <link rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="app.css">
+        <script src="script.js"></script>
+        <title>CVAT Label Converter</title>
+    </head>
+    <body>
+        <div class="container border">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h1 class="display-1">CVAT Label Converter</h1>
+                    <h5 class="lead">A helper to generate the raw meta file for CVAT, from selected labels.</h4>
+                    <br>
+                    <label for="input_labels">Choose your labels:</label>
+                    <select id="input_labels" multiple="multiple">
+                        <option value="contact">contact</option>
+                        <option value="near">near</option>
+                        <option value="intermediate">intermediate</option>
+                        <option value="far">far</option>
+                        <option value="forcep_open">forcep_open</option>
+                        <option value="forcep_close">forcep_close</option>
+                        <option value="light">light</option>
+                        <option value="loop">loop</option>
+                        <option value="soft">soft</option>
+                    </select>
+                    <br><br>
+                    <button id="submit" type="submit" class="btn btn-primary">Get Raw Meta File</button>
+                    <br><br>
+                    <div id="output_text" class="bg-light"><span id="myText"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <a class="navbar-brand" href="https://junzeliu.github.io/">by Junze Liu</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </body>
+    <script>
+        document.getElementById('submit').onclick = function() {
+        var checked = document.querySelectorAll('#input_labels :checked');
+        var selected = [...checked].map(option => option.value);
+        let tag_list = ["contact","near", "intermediate", "far"];
+        let output_text = "[\n";
+        for (let i = 0; i < selected.length; i++) {
+            if (tag_list.includes(selected[i])) {
+                var key_type = "tag"
+            }
+            else {
+                var key_type = "any"
+            }
+            output_text += "\xa0\xa0{\n\xa0\xa0\xa0\xa0\"name\":\xa0\"" + selected[i] + "\",\n";
+            output_text += "\xa0\xa0\xa0\xa0\"type\":\xa0\"" + key_type + "\",\n";
+            output_text += "\xa0\xa0\xa0\xa0\"attributes\":\xa0[]\n";
+            if (i < selected.length - 1) {
+                output_text += "\xa0\xa0},\n";
+            }
+            else {
+                output_text += "\xa0\xa0}\n";
+            }
+            
+        }
+        output_text += "]"
+        // alert(output_text);
+        document.getElementById("myText").innerHTML = output_text;
+        }
+    </script>
+</html>
