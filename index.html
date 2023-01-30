@@ -16,8 +16,13 @@
                     <h1 class="display-1">CVAT Label Converter</h1>
                     <h5 class="lead">A helper to generate the raw meta file for CVAT, from selected labels.</h4>
                     <br>
-                    <label for="input_labels">Choose your labels:</label>
-                    <select id="input_labels" multiple="multiple">
+                </div>
+            </div>
+            <div class="row">
+                <!-- col-md-8 -->
+                <div class="col mx-auto">
+                    <!-- <label for="input_labels">Choose your labels:</label>
+                    <select class="form-select" id="input_labels" multiple="multiple">
                         <option value="contact">contact</option>
                         <option value="near">near</option>
                         <option value="intermediate">intermediate</option>
@@ -28,6 +33,155 @@
                         <option value="loop">loop</option>
                         <option value="soft">soft</option>
                     </select>
+                    <br><br> -->
+                    <h4>Chapter</h4>
+                    <div id="chapter_checkboxes">
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="trocar_insertion" id="trocarInsertion" name="chapter">
+                            <label class="form-check-label" for="trocarInsertion">Trocar Insertion</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="core_vitrectomy" id="coreVitrectomy" name="chapter">
+                            <label class="form-check-label" for="coreVitrectomy">Core Vitrectomy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="peripheral_vitrectomy" id="peripheralVitrectomy" name="chapter">
+                            <label class="form-check-label" for="peripheralVitrectomy">Peripheral Vitrectomy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="shave_vitrectomy" id="shaveVitrectomy" name="chapter">
+                            <label class="form-check-label" for="shaveVitrectomy">Shave Vitrectomy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="membrane_staining" id="membraneStaining" name="chapter">
+                            <label class="form-check-label" for="membraneStaining">Membrane Staining</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="membrane_peeling" id="membranePeeling" name="chapter">
+                            <label class="form-check-label" for="membranePeeling">Membrane Peeling</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="endolaser" id="endolaser" name="chapter">
+                            <label class="form-check-label" for="endolaser">Endolaser</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="endocautery" id="ndocautery" name="chapter">
+                            <label class="form-check-label" for="endocautery">Endocautery</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="air_fluid_exchange" id="airFluidExchange" name="chapter">
+                            <label class="form-check-label" for="airFluidExchange">Air Fluid Exchange</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="gas_insuflation" id="gasInsuflation" name="chapter">
+                            <label class="form-check-label" for="gasInsuflation">Gas Insuflation</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="silicone_oil_injection" id="siliconeOilInjection" name="chapter">
+                            <label class="form-check-label" for="siliconeOilInjection">Silicone Oil Injection</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="canula_removal" id="canulaRemoval" name="chapter">
+                            <label class="form-check-label" for="canulaRemoval">Canula Removal</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="sclerotomy_suturing" id="sclerotomySuturing" name="chapter">
+                            <label class="form-check-label" for="sclerotomySuturing">Sclerotomy Suturing</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="button-input-chapter" value="" placeholder="Other" aria-label="Other" aria-describedby="button-addon-chapter">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon-chapter">Add</button>
+                    </div>
+                </div>
+                <div class="col mx-auto">
+                    <h4>Instrument Depth</h4>
+                    <div id="instrumentDepth_checkboxes">
+                        <h5>LEFT INSTRUMENT</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="left_lens" id="leftLens" name="instrumentDepth">
+                            <label class="form-check-label" for="leftLens">Lens</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="left_far" id="leftFar" name="instrumentDepth">
+                            <label class="form-check-label" for="leftFar">Far</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="left_near" id="leftNear" name="instrumentDepth">
+                            <label class="form-check-label" for="leftNear">Near</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="left_contact" id="leftContact" name="instrumentDepth">
+                            <label class="form-check-label" for="leftContact">Contact</label>
+                        </div>
+                        <h5>RIGHT INSTRUMENT</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="right_contact" id="rightContact" name="instrumentDepth">
+                            <label class="form-check-label" for="rightContact">Contact</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="right_near" id="rightNear" name="instrumentDepth">
+                            <label class="form-check-label" for="rightNear">Near</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="right_far" id="rightFar" name="instrumentDepth">
+                            <label class="form-check-label" for="rightFar">Far</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="right_lens" id="rightLens" name="instrumentDepth">
+                            <label class="form-check-label" for="rightLens">Lens</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="button-input-instrumentDepth" value="" placeholder="Other" aria-label="Other" aria-describedby="button-addon-instrumentDepth">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon-instrumentDepth">Add</button>
+                    </div>
+                </div>
+                
+                <div class="col mx-auto">
+                    <h4>Anatomical Landmarks</h4>
+                    <div id="anatomicalLandmarks_checkboxes">
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="nerve" id="nerve" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="nerve">Nerve</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="macula" id="macula" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="macula">Macula</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="macular_hole" id="macularHole" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="macularHole">Macular Hole</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="tractional_membrane" id="tractionalMembrane" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="tractionalMembrane">Tractional Membrane</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="retinal_detachent" id="retinalDetachent" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="retinalDetachent">Retinal Detachent</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="indentation_depressor" id="indentationDepressor" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="indentationDepressor">Indentation - Depressor</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onChange="toggleButton();" type="checkbox" value="indentation_uckle" id="indentationBuckle" name="anatomicalLandmarks">
+                            <label class="form-check-label" for="indentationBuckle">Indentation – Buckle</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="button-input-anatomicalLandmarks" value="" placeholder="Other" aria-label="Other" aria-describedby="button-addon-anatomicalLandmarks">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon-anatomicalLandmarks">Add</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12 mx-auto">
                     <br><br>
                     <button id="submit" type="submit" class="btn btn-primary">Get Raw Meta File</button>
                     <br><br>
@@ -48,31 +202,126 @@
     </body>
     <script>
         document.getElementById('submit').onclick = function() {
-        var checked = document.querySelectorAll('#input_labels :checked');
-        var selected = [...checked].map(option => option.value);
-        let tag_list = ["contact","near", "intermediate", "far"];
-        let output_text = "[\n";
-        for (let i = 0; i < selected.length; i++) {
-            if (tag_list.includes(selected[i])) {
-                var key_type = "tag"
+            // var checked = document.querySelectorAll('#input_labels :checked');  // form-select
+            var checked = document.querySelectorAll('input[type="checkbox"]:checked');  // form-check
+            // var checked = document.getElementsByName('chapter');  // form-check
+            var selected = [...checked].map(option => option.value);
+            let tag_list = ["left_contact", "left_near", "left_intermediate", "left_far", "left_lens",
+                            "right_contact", "right_near", "right_intermediate", "right_far", "right_lens"];
+            let output_text = "[\n";
+            for (let i = 0; i < selected.length; i++) {
+                if (tag_list.includes(selected[i])) {
+                    var key_type = "tag"
+                }
+                else {
+                    var key_type = "any"
+                }
+                output_text += "\xa0\xa0{\n\xa0\xa0\xa0\xa0\"name\":\xa0\"" + selected[i] + "\",\n";
+                output_text += "\xa0\xa0\xa0\xa0\"type\":\xa0\"" + key_type + "\",\n";
+                output_text += "\xa0\xa0\xa0\xa0\"attributes\":\xa0[]\n";
+                if (i < selected.length - 1) {
+                    output_text += "\xa0\xa0},\n";
+                }
+                else {
+                    output_text += "\xa0\xa0}\n";
+                }
+                
             }
-            else {
-                var key_type = "any"
-            }
-            output_text += "\xa0\xa0{\n\xa0\xa0\xa0\xa0\"name\":\xa0\"" + selected[i] + "\",\n";
-            output_text += "\xa0\xa0\xa0\xa0\"type\":\xa0\"" + key_type + "\",\n";
-            output_text += "\xa0\xa0\xa0\xa0\"attributes\":\xa0[]\n";
-            if (i < selected.length - 1) {
-                output_text += "\xa0\xa0},\n";
-            }
-            else {
-                output_text += "\xa0\xa0}\n";
-            }
-            
+            output_text += "]"
+            // alert(output_text);
+            document.getElementById("myText").innerHTML = output_text;
         }
-        output_text += "]"
-        // alert(output_text);
-        document.getElementById("myText").innerHTML = output_text;
+        document.getElementById('button-addon-chapter').onclick = function() {
+            var checkbox_name = document.getElementById('button-input-chapter').value;
+            var checkbox_value = checkbox_name.split(' ').join('_').toLowerCase();
+            // console.log(checkbox_name);
+            var div = document.createElement('div');
+            div.className = "form-check";
+
+            var checkbox = document.createElement('input');
+            checkbox.className = "form-check-input"
+            checkbox.type = 'checkbox';
+            checkbox.id = checkbox_name;
+            checkbox.name = 'chapter';
+            checkbox.value = checkbox_value;
+        
+            var label = document.createElement('label')
+            label.className = "form-check-label"
+            label.htmlFor = checkbox_name;
+            label.appendChild(document.createTextNode(checkbox_name));
+        
+            var br = document.createElement('br');
+        
+            var container = document.getElementById('chapter_checkboxes');
+
+            div.appendChild(checkbox)
+            div.appendChild(label)
+            div.appendChild(br)
+            container.appendChild(div)
+
+            document.getElementById('button-input-chapter').value = '';  // clear the input field after clicking the button
+        }
+
+        document.getElementById('button-addon-instrumentDepth').onclick = function() {
+            var checkbox_name = document.getElementById('button-input-instrumentDepth').value;
+            var checkbox_value = checkbox_name.split(' ').join('_').toLowerCase();
+            // console.log(checkbox_name);
+            var div = document.createElement('div');
+            div.className = "form-check";
+
+            var checkbox = document.createElement('input');
+            checkbox.className = "form-check-input"
+            checkbox.type = 'checkbox';
+            checkbox.id = checkbox_name;
+            checkbox.name = 'instrumentDepth';
+            checkbox.value = checkbox_value;
+        
+            var label = document.createElement('label')
+            label.className = "form-check-label"
+            label.htmlFor = checkbox_name;
+            label.appendChild(document.createTextNode(checkbox_name));
+        
+            var br = document.createElement('br');
+        
+            var container = document.getElementById('instrumentDepth_checkboxes');
+
+            div.appendChild(checkbox)
+            div.appendChild(label)
+            div.appendChild(br)
+            container.appendChild(div)
+
+            document.getElementById('button-input-instrumentDepth').value = '';  // clear the input field after clicking the button
+        }
+
+        document.getElementById('button-addon-anatomicalLandmarks').onclick = function() {
+            var checkbox_name = document.getElementById('button-input-anatomicalLandmarks').value;
+            var checkbox_value = checkbox_name.split(' ').join('_').toLowerCase();
+            // console.log(checkbox_name);
+            var div = document.createElement('div');
+            div.className = "form-check";
+
+            var checkbox = document.createElement('input');
+            checkbox.className = "form-check-input"
+            checkbox.type = 'checkbox';
+            checkbox.id = checkbox_name;
+            checkbox.name = 'anatomicalLandmarks';
+            checkbox.value = checkbox_value;
+        
+            var label = document.createElement('label')
+            label.className = "form-check-label"
+            label.htmlFor = checkbox_name;
+            label.appendChild(document.createTextNode(checkbox_name));
+        
+            var br = document.createElement('br');
+        
+            var container = document.getElementById('anatomicalLandmarks_checkboxes');
+
+            div.appendChild(checkbox)
+            div.appendChild(label)
+            div.appendChild(br)
+            container.appendChild(div)
+
+            document.getElementById('button-input-anatomicalLandmarks').value = '';  // clear the input field after clicking the button
         }
     </script>
 </html>
